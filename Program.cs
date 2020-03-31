@@ -8,6 +8,7 @@ namespace LP2_TP1
         {
             Console.WriteLine("Hello World!");
             console.WriteLine("Teste git");
+            console.WriteLine("Teste 2");
         }
     }
 }
