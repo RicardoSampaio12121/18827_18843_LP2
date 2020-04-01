@@ -6,10 +6,7 @@ namespace LP2_TP1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Teste 2");
-            Console.Write("Es um nabo");
-            Console.Write("Pó caralho");
+            
         }
     }
 }
