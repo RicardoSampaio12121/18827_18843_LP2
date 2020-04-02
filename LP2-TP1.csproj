@@ -6,10 +6,4 @@
     <RootNamespace>LP2_TP1</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Math, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\..\..\..\RiderProjects\Math\Math\bin\Debug\netcoreapp3.1\Math.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

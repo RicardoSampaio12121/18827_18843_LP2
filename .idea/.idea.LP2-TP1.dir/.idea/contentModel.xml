@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_.19.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".floo" t="Include" />
       <e p=".flooignore" t="Include" />
       <e p=".gitattributes" t="Include" />
       <e p="LP2-TP1.csproj" t="IncludeRecursive" />
+      <e p="Patient.cs" t="Include" />
+      <e p="Patients.cs" t="Include" />
       <e p="Program.cs" t="Include" />
       <e p="README.md" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
@@ -18,7 +22,5 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_.19.00" t="ExcludeRecursive" />
   </component>
 </project>
