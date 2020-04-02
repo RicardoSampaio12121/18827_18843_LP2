@@ -7,6 +7,7 @@ namespace LP2_TP1
         static void Main(string[] args)
         {
             Console.WriteLine("Teste");
+            Console.WriteLine("Teste 179");
             
         }
     }
