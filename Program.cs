@@ -15,6 +15,7 @@ namespace LP2_TP1
             Console.WriteLine("Priority: "+ novo.Priority);
 
 
+            
             /*teste = Patients.AddToQueue(novo);
             
             if(teste) Console.WriteLine("tru2");
