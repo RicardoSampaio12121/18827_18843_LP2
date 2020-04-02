@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/LP2-TP1.csproj": {}
+  },
+  "projects": {
+    "/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/LP2-TP1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/LP2-TP1.csproj",
+        "projectName": "LP2-TP1",
+        "projectPath": "/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/LP2-TP1.csproj",
+        "packagesPath": "/home/ricardo/.nuget/packages/",
+        "outputPath": "/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ricardo/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

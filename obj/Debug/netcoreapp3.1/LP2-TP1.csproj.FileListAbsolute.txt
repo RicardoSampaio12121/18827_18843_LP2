@@ -1,0 +1,11 @@
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/bin/Debug/netcoreapp3.1/LP2-TP1
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/bin/Debug/netcoreapp3.1/LP2-TP1.deps.json
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/bin/Debug/netcoreapp3.1/LP2-TP1.runtimeconfig.json
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/bin/Debug/netcoreapp3.1/LP2-TP1.runtimeconfig.dev.json
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/bin/Debug/netcoreapp3.1/LP2-TP1.dll
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/bin/Debug/netcoreapp3.1/LP2-TP1.pdb
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/obj/Debug/netcoreapp3.1/LP2-TP1.csprojAssemblyReference.cache
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/obj/Debug/netcoreapp3.1/LP2-TP1.AssemblyInfoInputs.cache
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/obj/Debug/netcoreapp3.1/LP2-TP1.AssemblyInfo.cs
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/obj/Debug/netcoreapp3.1/LP2-TP1.dll
+/home/ricardo/Documentos/IPCA/LP2/TP1/LP2-TP1/obj/Debug/netcoreapp3.1/LP2-TP1.pdb
