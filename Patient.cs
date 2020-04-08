@@ -7,7 +7,7 @@ namespace LP2_TP1
         private string name;
         private int age;
         private string cc;
-        int priority;
+        private int priority;
 
         #endregion
     
@@ -18,7 +18,7 @@ namespace LP2_TP1
             get => name;
             set => name = value;
         }
-
+    
         public int Age
         {
             get => age;
@@ -31,12 +31,11 @@ namespace LP2_TP1
             set => cc = value;
         }
 
-        public int Priority
-        {
+        public int Priority{
             get => priority;
             set => priority = value;
-        } 
-        
+        }
+ 
         #endregion
         
         #region METHODS
@@ -47,6 +46,14 @@ namespace LP2_TP1
         //}
         
         #region CONSTRUCTOR
+
+        
+        public Patient(){
+            this.name = "";
+            this.age = 0;
+            this.cc = "";
+            this.priority = 0;
+        }
 
         public Patient(string name, int age, string cc, int priority)
         {
