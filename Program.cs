@@ -18,20 +18,23 @@ namespace LP2_TP1
 
                 switch (decisao)
                 {
-                    case 'A':
+                    case 'A': //Add a new patient to the queue
+                        
+                        novo = new Patient(); //Initializes the object variable
 
+                        //Collects the needed data and adds stores it to the object variable
                         Console.Write("Name (First and Last): ");
-                        string nome = Console.ReadLine();
+                        novo.Name = Console.ReadLine();
                         Console.Write("Age: ");
-                        int idade = int.Parse(Console.ReadLine());
+                        novo.Age = int.Parse(Console.ReadLine());
                         Console.Write("CC: ");
-                        string cc = Console.ReadLine();
+                        novo.CC = Console.ReadLine();
                         Console.Write("Priority: ");
-                        int prioridade = int.Parse(Console.ReadLine());
+                        novo.Priority = int.Parse(Console.ReadLine());
 
-                        novo = new Patient(nome, idade, cc, prioridade);
-                        patient[Patients.NPatients()] = novo;
+                        patient[Patients.NPatients()] = novo; //Inserts the new object in an array of the same object
 
+                        //Verifies if the CC hasn't been to the screening before
                         bool patientAdded = Patients.AddToQueue(patient[Patients.NPatients()]);
                         if (!patientAdded) Console.WriteLine("Patient has already been to the screening");
 
@@ -41,7 +44,7 @@ namespace LP2_TP1
 
 
                     case 'B':
-
+                        
                         Patients.ListPatientsQueue();
                         Console.ReadKey();
 
