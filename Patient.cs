@@ -5,12 +5,13 @@ namespace LP2_TP1
         #region ATTRIBUTES
 
         private string name;
-        private int age;
+        private string birthDate;
         private string cc;
-        private int priority;
+        private string adress;
+        private int priority = 0;
 
         #endregion
-    
+
         #region PROPERTIES
 
         public string Name
@@ -18,11 +19,11 @@ namespace LP2_TP1
             get => name;
             set => name = value;
         }
-    
-        public int Age
+
+        public string BirthDate
         {
-            get => age;
-            set => age = value;
+            get => birthDate;
+            set => birthDate = value;
         }
 
         public string CC
@@ -31,37 +32,45 @@ namespace LP2_TP1
             set => cc = value;
         }
 
-        public int Priority{
+        public string Adress
+        {
+            get => adress;
+            set => adress = value;
+        }
+
+        public int Priority
+        {
             get => priority;
             set => priority = value;
         }
- 
+
+
+
         #endregion
-        
+
         #region METHODS
 
-        //private bool VerifyCC(string cc)
-        //{
-            
-        //}
-        
+       
+
         #region CONSTRUCTOR
 
-        
-        public Patient(){
+        public Patient()
+        {
             this.name = "";
-            this.age = 0;
+            this.birthDate = "";
             this.cc = "";
-            this.priority = 0;
+            this.adress = "";
         }
 
-        public Patient(string name, int age, string cc, int priority)
+        public Patient(string name, string birthDate, string cc, string morada)
         {
             this.name = name;
-            this.age = age;
+            this.birthDate = birthDate;
             this.cc = cc;
-            this.priority = priority;
+            this.adress = morada;
         }
+
+
         #endregion
 
         #endregion
@@ -70,20 +79,22 @@ namespace LP2_TP1
 
         public override bool Equals(object obj)
         {
-            Patient aux = (Patient) obj;
+            Patient aux = (Patient)obj;
             return (string.Compare(this.cc, aux.cc) == 0);
         }
+
+        public override int GetHashCode() { return 0; }
 
         public static bool operator ==(Patient p1, Patient p2)
         {
             return (p1.Equals(p2));
         }
-        
-        public static bool operator != (Patient p1, Patient p2)
+
+        public static bool operator !=(Patient p1, Patient p2)
         {
             return (!(p1.Equals(p2)));
         }
-        
+
         #endregion
 
     }
