@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-------------------------------//
+//Author: Ricardo Sampaio a18827
+//Author: Cláudio Silva a18843
+//Summary: Hospital ER System
+//--------------------------------//
+
+using System;
 
 namespace LP2_TP1
 {

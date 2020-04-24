@@ -1,3 +1,9 @@
+//-------------------------------//
+//Author: Ricardo Sampaio a18827
+//Author: Cláudio Silva a18843
+//Summary: Patients class
+//--------------------------------//
+
 using System;
 
 namespace LP2_TP1

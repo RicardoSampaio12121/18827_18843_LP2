@@ -1,3 +1,11 @@
+//-------------------------------//
+//Author: Ricardo Sampaio a18827
+//Author: Cláudio Silva a18843
+//Summary: Classes for queues
+//--------------------------------//
+
+
+
 using System;
 
 namespace LP2_TP1
@@ -9,8 +17,8 @@ namespace LP2_TP1
         #region ATTRIBUTES
 
         const int MAXPATIENTS = 500;
-        static Patient[] queueScreening; //fila de espera da Urgencia normal
-        static int nPatients; //numero de pacientes na Urgencia
+        static Patient[] queueScreening; 
+        static int nPatients; 
 
         #endregion
 
