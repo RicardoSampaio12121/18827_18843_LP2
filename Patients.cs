@@ -14,7 +14,9 @@ namespace LP2_TP1
         #endregion
 
         #region CONSTRUCTORS
-
+        /// <summary>
+        /// Initializes at start up
+        /// </summary>
         static Patients()
         {
             patientFiles = new Patient[MAXPATIENTS];
@@ -25,13 +27,21 @@ namespace LP2_TP1
 
         #region Functions
 
-
+        /// <summary>
+        /// Create a new patient file
+        /// </summary>
+        /// <param name="p"></param>
         public static void AddToFile(Patient p)
         {
               patientFiles[nPatients] = p;
               nPatients++;
         }
-
+        /// <summary>
+        /// Checks if exist a patient with the CC card inserted and returns the position
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
         public static bool VerifyCC(string CC, out int valor)
         {
             valor = 0;
@@ -47,7 +57,11 @@ namespace LP2_TP1
             return false;
         }
 
-        
+        /// <summary>
+        /// Checks if the someone with same CC number is already in the File
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <returns></returns>
         public static bool VerifyCC(string CC)
         {
             for (int i = 0; i < nPatients; i++)
@@ -60,7 +74,12 @@ namespace LP2_TP1
 
             return false;
         }
-
+        /// <summary>
+        /// Edit Patient name
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool EditFileName(string CC, string name)
         {
             for (int i = 0; i < nPatients; i++)
@@ -75,7 +94,12 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// Edit Patient Adress
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <param name="address"></param>
+        /// <returns></returns>
         public static bool EditFileAddress(string CC, string address)
         {
             for (int i = 0; i < nPatients; i++)
@@ -89,7 +113,13 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// Edit Patient adress and name
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <param name="name"></param>
+        /// <param name="address"></param>
+        /// <returns></returns>
         public static bool EditFileNameAddress(string CC, string name, string address)
         {
             for (int i = 0; i < nPatients; i++)
@@ -105,6 +135,11 @@ namespace LP2_TP1
         }
 
 
+        /// <summary>
+        /// Get a patient from CC
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <returns></returns>
         
         public static Patient GetPatientByCC(string CC)
         {
@@ -116,7 +151,9 @@ namespace LP2_TP1
             return patientFiles[position]; 
         }
 
-
+        /// <summary>
+        /// list all Patients file
+        /// </summary>
         public static void ListPatientsFile()
         {
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------");

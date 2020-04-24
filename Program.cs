@@ -75,7 +75,7 @@ namespace LP2_TP1
                                                 Console.WriteLine("Patient has been added to the screening queue.");
                                             else
                                                 Console.WriteLine("Patient is already in the sceening queue");
-                                                
+
                                         }
                                         Console.WriteLine("Press any key to continue...");
                                         Console.ReadKey();
@@ -103,7 +103,8 @@ namespace LP2_TP1
                                                     Console.Write("Novo nome: ");
                                                     string newName = Console.ReadLine();
 
-                                                    if(!CheckIfTTwoNames(newName)){
+                                                    if (!CheckIfTTwoNames(newName))
+                                                    {
                                                         Console.WriteLine("Invalid name.\nPress any key to continue...");
                                                         Console.ReadKey();
                                                         break;
@@ -121,20 +122,20 @@ namespace LP2_TP1
                                                 {
                                                     Console.Write("Nova morada: ");
                                                     string newAddress = Console.ReadLine();
-                                                    
+
                                                     if (!Patients.EditFileAddress(cc, newAddress))
                                                     {
                                                         Console.WriteLine("CC not found.\nPress any key to continue...");
                                                         Console.ReadKey();
                                                         break;
                                                     }
-                                                    Console.WriteLine("Address changes sucessfully.\Press any key to continue...");
+                                                    Console.WriteLine("Address changes sucessfully.\nPress any key to continue...");
                                                 }
                                                 else if (decisao == 'c' || decisao == 'C')
                                                 {
                                                     Console.Write("Novo nome: ");
                                                     string newName = Console.ReadLine();
-                                                    if(!CheckIfTTwoNames(newName))
+                                                    if (!CheckIfTTwoNames(newName))
                                                     {
                                                         Console.WriteLine("Invalid name.\nPress any key to continue...");
                                                         Console.ReadKey();
@@ -143,7 +144,7 @@ namespace LP2_TP1
                                                     Console.Write("Nova morada: ");
                                                     string newAddress = Console.ReadLine();
 
-                                                    if(!Patients.EditFileNameAddress(cc, newName, newAddress))
+                                                    if (!Patients.EditFileNameAddress(cc, newName, newAddress))
                                                     {
                                                         Console.WriteLine("CC not found.\nPress any key to continue...");
                                                         Console.ReadKey();
@@ -235,7 +236,7 @@ namespace LP2_TP1
                                         case 'b':
                                         case 'B':
                                             //Edit doctor information
-                                            Console.WriteLine("ID: ");
+                                            Console.Write("ID: ");
                                             bool ver5 = int.TryParse(Console.ReadLine(), out int id); //checks if the inserted id exists
 
                                             if (!ver5)
@@ -285,6 +286,7 @@ namespace LP2_TP1
                                         case 'D':
                                             //list all doctors
                                             Doctors.ListDoctors();
+                                            Console.WriteLine("Press any key to continue...");
                                             Console.ReadKey();
                                             break;
 
@@ -316,6 +318,7 @@ namespace LP2_TP1
 
                                         while (decisao != 'c' && decisao != 'C') //while "decisao" != 'c' or 'C', stays in the menu "Screening"
                                         {
+                                            Console.Clear();
                                             MenuScreening();
                                             bool ver8 = char.TryParse(Console.ReadLine(), out decisao); //checks if user inserted a valid option from the menu
 
@@ -333,7 +336,7 @@ namespace LP2_TP1
                                                     Patient p = Screening.CallNextPatient();
                                                     Screening.ListCurrentPatient();
                                                     Console.Write("Patient priority: ");
-                                                    bool ver = int.TryParse(Console.ReadLine(), out int patientPriority); //Checks Daif user inseted a valid priority 
+                                                    bool ver = int.TryParse(Console.ReadLine(), out int patientPriority); //Checks Daif user inseted a valid priority for
 
                                                     if (ver)
                                                     {
@@ -353,6 +356,8 @@ namespace LP2_TP1
                                                 case 'B'://List queue
 
                                                     Screening.ListPatientsInScreening();
+                                                    Console.WriteLine("Press any key to continue...");
+                                                    Console.ReadKey();
 
                                                     break;
 
@@ -369,6 +374,7 @@ namespace LP2_TP1
 
                                         while (decisao != 'c' && decisao != 'C') //while "decisao" != 'c' or 'C', stays in the menu "Urgency"
                                         {
+                                            Console.Clear();
                                             MenuUrgency();
                                             bool ver9 = char.TryParse(Console.ReadLine(), out decisao); //Checks if user inserted a valid option format
                                             if (!ver9)
@@ -383,7 +389,7 @@ namespace LP2_TP1
                                                 case 'a':
                                                 case 'A'://Call patient
 
-                                                    Console.WriteLine("Doctor ID: ");
+                                                    Console.Write("Doctor ID: ");
                                                     bool verify = int.TryParse(Console.ReadLine(), out int docID);
 
                                                     if (verify)
@@ -426,6 +432,10 @@ namespace LP2_TP1
                                         break;
                                 }
                             }
+                            break;
+                        case 'd':
+                        case 'D':
+                            Environment.Exit(0);
                             break;
                     }
                 }
@@ -537,9 +547,13 @@ namespace LP2_TP1
             Console.WriteLine("-----------------------------------------------------------");
 
         }
-        
 
-        
+
+        /// <summary>
+        /// Checks if the inserted name has a valid format
+        /// </summary>
+        /// <param name="names"></param>
+        /// <returns></returns>
         static bool CheckIfTTwoNames(string names)
         {
 
@@ -553,7 +567,11 @@ namespace LP2_TP1
             return false;
         }
 
-        
+        /// <summary>
+        /// Checks if the inserted birth day has a valid format
+        /// </summary>
+        /// <param name="birthDate"></param>
+        /// <returns></returns>
         static bool CheckIfValidBirthDate(string birthDate)
         {
             int i;

@@ -16,7 +16,9 @@ namespace LP2_TP1
 
 
         #region CONSTRUCTORS
-
+        /// <summary>
+        /// Initializes at start up
+        /// </summary>
         static Screening()
         {
             queueScreening = new Patient[MAXPATIENTS];
@@ -28,7 +30,11 @@ namespace LP2_TP1
 
         #region Functions
         
-        
+        /// <summary>
+        /// Add Patient to Screening
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static bool AddToScreening(Patient p)
         {
             if (!VerifyCC(p))
@@ -39,7 +45,11 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// Checks if the someone with same CC number is already in the screening queue
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <returns></returns>
         public static bool VerifyCC(Patient p1)
         {
             for (int i = 0; i < nPatients; i++)
@@ -49,12 +59,17 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// Call next patient in the screening queue
+        /// </summary>
+        /// <returns></returns>
         public static Patient CallNextPatient()
         {
             return queueScreening[0];
         }
-
+        /// <summary>
+        /// Remove a patient from the screeening queue
+        /// </summary>
         public static void RemovePatientFromScreeningQueue()
         {
             for (int i = 0; i < nPatients; i++)
@@ -63,13 +78,20 @@ namespace LP2_TP1
             }
             nPatients--;
         }
-
+        /// <summary>
+        /// Give Priority to a patient
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="patientPriority"></param>
+        /// <returns></returns>
         public static Patient GivePriority(Patient p, int patientPriority)
         {
             p.Priority = patientPriority;
             return p;
         }
-
+        /// <summary>
+        /// list current Patient
+        /// </summary>
         public static void ListCurrentPatient()
         {
             Console.WriteLine("       Pacient Information        ");
@@ -79,7 +101,9 @@ namespace LP2_TP1
             Console.WriteLine("Adress: {0}", queueScreening[0].Adress);
         }
 
-
+        /// <summary>
+        /// list all PAtients in Screening queue
+        /// </summary>
         public static void ListPatientsInScreening()
         {
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -135,48 +159,15 @@ namespace LP2_TP1
         #endregion
 
         #region Functions
-
+        /// <summary>
+        /// Add an patient to urgency queue
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static bool AddToUrgency(Patient p)
         {
             if (!VerifyCC(p))
             {
-                /*bool entrou = false;
-                int x = 0;
-
-                for (int i = 0; i < nPatients; i++)
-                {
-                    if (p.Priority > queueUrgency[i].Priority)
-                    {
-                        entrou = true;
-                        x = i;
-                    }
-                }
-
-                if (entrou == true)
-                {
-                    Patient aux = queueUrgency[x];
-                    Patient aux2;
-                    queueUrgency[x] = p;
-
-                    for (int i = 0; i < nPatients + 1; i++)
-                    {
-
-                        if (i > x)
-                        {
-                            aux2 = queueUrgency[i];
-                            queueUrgency[i] = aux;
-                            aux = aux2;
-
-                        }
-                    }
-                }
-                else
-                    queueUrgency[nPatients] = p;
-
-                nPatients++;
-                return true;
-                */
-
                 if (p.Priority == 1)
                 {
                     queueUrgency1[nPatients1] = p;
@@ -207,7 +198,10 @@ namespace LP2_TP1
             return false;
         }
 
-
+        /// <summary>
+        /// Call next Patient in Urgency Queue
+        /// </summary>
+        /// <returns></returns>
         public static Patient CallNextPatient()
         {
             if (nPatients5 > 0)
@@ -225,7 +219,9 @@ namespace LP2_TP1
 
         }
 
-
+        /// <summary>
+        /// Remove Patient from Urgency queue
+        /// </summary>
         public static void RemovePatientUrgencyQueue()
         {
             if (nPatients5 > 0)
@@ -269,7 +265,11 @@ namespace LP2_TP1
                 nPatients1--;
             }
         }
-
+        /// <summary>
+        /// Checks if the someone with same CC number is already in the urgency queue
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <returns></returns>
         public static bool VerifyCC(Patient p1)
         {
             if (p1.Priority == 5)
@@ -314,7 +314,9 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// List the current Patient
+        /// </summary>
         public static void ListCurrentPatient()
         {
             Console.WriteLine("       Pacient Information        ");
@@ -354,7 +356,9 @@ namespace LP2_TP1
                 Console.WriteLine("Priority: {0}", queueUrgency1[0].Priority);
             }
         }
-
+        /// <summary>
+        /// List all patients in queue for Urgency
+        /// </summary>
         public static void ListPatientsInUrgency()
         {
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------");

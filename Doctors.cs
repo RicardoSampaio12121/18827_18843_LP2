@@ -17,6 +17,9 @@ namespace LP2_TP1
 
         #region CONSTRUCTORS
 
+        /// <summary>
+        /// Initializes at start up
+        /// </summary>
         static Doctors()
         {
             doctorsList = new Doctor[MAXDOCTORS];
@@ -28,7 +31,11 @@ namespace LP2_TP1
         #endregion
 
         #region Functions
-
+        /// <summary>
+        /// Verifys if the CC exists
+        /// </summary>
+        /// <param name="CC"></param>
+        /// <returns></returns>
         public static bool VerifyCC(string CC)
         {
             for (int i = 0; i < nDoctors; i++)
@@ -41,7 +48,11 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// Add a doctor to th array
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         public static bool AddToDoctors(Doctor d)
         {
             for (int i = 0; i <= nDoctors; i++)
@@ -58,7 +69,12 @@ namespace LP2_TP1
 
 
 
-
+        /// <summary>
+        /// Edits the doctor's name
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static bool EditDoctorName(int id, string name)
         {
             for (int i = 0; i < nDoctors; i++)
@@ -73,7 +89,11 @@ namespace LP2_TP1
             }
             return false;
         }
-
+        /// <summary>
+        /// Removes a doctor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool RemoveDoc(int id)
         {
             int i;
@@ -90,16 +110,22 @@ namespace LP2_TP1
 
             return false;
         }
-
+        /// <summary>
+        /// Verifys if the doctor's id exists
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool VerifyID(int id)
         {
             for (int i = 0; i < nDoctors; i++)
             {
-                if(id == doctorsList[i].IdDoctor) return true;
+                if(id == doctorsList[i].IdDoctor && doctorsList[i].Operational) return true;
             }
             return false;
         }
-
+        /// <summary>
+        /// Lists all the operational doctors
+        /// </summary>
         public static void ListDoctors()
         {
             Console.WriteLine("---------------------------------------------------------------------------------");
