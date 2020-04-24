@@ -16,289 +16,423 @@ namespace LP2_TP1
             {
                 Console.Clear();
                 MainMenu();
-                decisao = char.Parse(Console.ReadLine());
+                bool ver1 = char.TryParse(Console.ReadLine(), out decisao); //Colect menu option
 
-                switch (decisao)
+                if (ver1) //if user selected a valid option from the menu
                 {
+                    switch (decisao)
+                    {
+                        case 'a':
+                        case 'A': //Add a new patient to the queue
 
-                    case 'a':
-                    case 'A': //Add a new patient to the queue
-
-                        while (decisao != 'D' && decisao != 'd')
-                        {
-                            MenuPatients();
-                            decisao = char.Parse(Console.ReadLine());
-                            switch (decisao)
-
+                            while (decisao != 'D' && decisao != 'd') //while "decisao" != 'd' or 'D', stays in the menu "Patients"
                             {
-                                case 'a':
-                                case 'A':
-                                    //Adiciona um paciente à lista de espera para a triagem
-                                    Console.Write("CC: ");
-                                    string cc = Console.ReadLine();
+                                Console.Clear();
+                                MenuPatients();
+                                bool ver2 = char.TryParse(Console.ReadLine(), out decisao);
 
-                                    if (!Patients.VerifyCC(cc))
-                                    {
-                                        novo = new Patient();
+                                switch (decisao)
+                                {
+                                    case 'a':
+                                    case 'A':
+                                        //Add patient to the Screening queue
+                                        Console.Write("CC: ");
+                                        string cc = Console.ReadLine();
 
-                                        //Collects the needed data and adds stores it to the object variable
-                                        Console.Write("Name (First and Last): ");
-                                        novo.Name = Console.ReadLine();
-                                        Console.Write("Age: ");
-                                        novo.BirthDate = Console.ReadLine();
-                                        //Console.Write("CC: ");
-                                        novo.CC = cc;
-                                        Console.Write("Address: ");
-                                        novo.Adress = Console.ReadLine();
-                                        Patients.AddToFile(novo);
-                                        //Verifies if the CC hasn't been to the screening before
-                                    }
-                                    else novo = Patients.GetPatientByCC(cc);
-
-                                    if (Screening.AddToScreening(novo))
-                                        Console.WriteLine("Patient has been added to the screening queue.");
-                                    else
-                                        Console.WriteLine("Patient is arleady in the sceening queue");
-                                    Console.ReadKey();
-                                    break;
-
-                                case 'b':
-                                case 'B':
-                                    //edita as infos de um paciente
-                                    Console.WriteLine("CC: ");
-                                    cc = Console.ReadLine();
-
-                                    Console.WriteLine("<A>Editar nome");
-                                    Console.WriteLine("<B>Editar morada");
-                                    Console.WriteLine("<C>Editar nome e morada");
-                                    decisao = char.Parse(Console.ReadLine());
-
-                                    if (decisao == 'a' || decisao == 'A')
-                                    {
-                                        Console.WriteLine("Novo nome: ");
-                                        string newName = Console.ReadLine();
-
-                                        Patients.EditFileName(cc, newName);
-                                    }
-
-                                    else if (decisao == 'b' || decisao == 'B')
-                                    {
-                                        Console.WriteLine("Nova morada: ");
-                                        string newAddress = Console.ReadLine();
-
-                                        Patients.EditFileAddress(cc, newAddress);
-                                    }
-                                    else if (decisao == 'c' || decisao == 'C')
-                                    {
-                                        Console.WriteLine("Novo nome: ");
-                                        string newName = Console.ReadLine();
-                                        Console.WriteLine("Nova morada: ");
-                                        string newAddress = Console.ReadLine();
-
-                                        Patients.EditFileNameAddress(cc, newName, newAddress);
-                                    }
-
-                                    Console.ReadKey();
-
-                                    break;
-
-                                case 'c':
-                                case 'C':
-                                    Patients.ListPatientsFile();
-                                    Console.ReadKey();
-                                    break;
-
-                                case 'd':
-                                case 'D':
-                                    break;
-                            }
-                        }
-
-                        break;
-
-                    case 'b':
-                    case 'B':
-
-                        while (decisao != 'E' && decisao != 'e')
-                        {
-                            MenuDoctors();
-                            decisao = char.Parse(Console.ReadLine());
-
-                            switch (decisao)
-                            {
-                                case 'a':
-                                case 'A':
-
-
-                                    novo2 = new Doctor();
-
-                                    //Collects the needed data and adds stores it to the object variable
-                                    Console.Write("Name (First and Last): ");
-                                    novo2.Name = Console.ReadLine();
-                                    Console.Write("CC: ");
-                                    novo2.CC = Console.ReadLine();
-                                    Console.Write("BirthDate: ");
-                                    novo2.BirthDate = Console.ReadLine();
-
-                                    if (Doctors.AddToDoctors(novo2)) Console.WriteLine("Doctor has been added sucessfully.");
-                                    else
-                                        Console.WriteLine("There is a doctor with the same CC.");
-
-                                    Console.ReadKey();
-
-                                    break;
-
-                                case 'b':
-                                case 'B':
-                                    Console.WriteLine("ID: ");
-                                    int id = int.Parse(Console.ReadLine());
-
-                                    Console.WriteLine("New name: ");
-                                    string newName = Console.ReadLine();
-
-                                    if (Doctors.EditDoctorName(id, newName)) Console.WriteLine("Name sucessfully edited.");
-                                    else Console.WriteLine("There was an error trying to edit the name, verify if the ID is correct");
-
-                                    Console.ReadKey();
-                                    break;
-
-                                case 'c':
-                                case 'C':
-
-
-                                    Console.WriteLine("ID: ");
-                                    bool ver = int.TryParse(Console.ReadLine(), out id);
-
-                                    if (ver)
-                                    {
-                                        if (Doctors.RemoveDoc(id)) Console.Write("Doctor sucessfully removed.");
-                                        else Console.Write("There was an error trying to remove the doctor, please verify the ID");
-                                    }
-                                    Console.ReadKey();
-                                    break;
-
-
-                                case 'd':
-                                case 'D':
-                                    Doctors.ListDoctors();
-                                    Console.ReadKey();
-                                    break;
-
-                            }
-                        }
-
-
-
-                        break;
-                    case 'c':
-                    case 'C':
-                        decisao = ' ';
-                        while (decisao != 'c' && decisao != 'C')
-                        {
-
-                            MenuER();
-                            decisao = char.Parse(Console.ReadLine());
-
-                            switch (decisao)
-                            {
-                                case 'a':
-                                case 'A': //Secreening
-
-                                    MenuScreening();
-                                    decisao = char.Parse(Console.ReadLine());
-
-                                    switch (decisao)
-                                    {
-                                        case 'a':
-                                        case 'A': //Call patient
-
-                                            Patient p = Screening.CallNextPatient();
-                                            Screening.ListCurrentPatient();
-                                            Console.Write("Patient priority: ");
-                                            bool ver = int.TryParse(Console.ReadLine(), out int patientPriority);
-
-                                            if (ver)
+                                        if (cc.Length != 12) Console.WriteLine("Invalid CC."); //check if CC has a valid format
+                                        else
+                                        {
+                                            if (!Patients.VerifyCC(cc)) //if this patient doesn't already have a File, create one
                                             {
-                                                Screening.GivePriority(p, patientPriority);
+                                                novo = new Patient();
 
-                                                Screening.RemovePatientFromScreeningQueue();
-                                                UrgencyQueue.AddToUrgency(p);
-
-                                                Console.WriteLine("Patient added to the queue!");
+                                                //Collects the needed data and adds stores it to the object variable
+                                                Console.Write("Name (First and Last): ");
+                                                novo.Name = Console.ReadLine();
+                                                if (!CheckIfTTwoNames(novo.Name)) //checks if name has a valid format
+                                                {
+                                                    Console.WriteLine("Invalid name.\nPress any key to continue...");
+                                                    Console.ReadLine();
+                                                    break;
+                                                }
+                                                Console.Write("Birth Date (DD-MM-YYYY) or (DD/MM/YYYY): ");
+                                                novo.BirthDate = Console.ReadLine();
+                                                if (!CheckIfValidBirthDate(novo.BirthDate)) //checks if Birth date has a valid format
+                                                {
+                                                    Console.WriteLine("Invalid birth date.\nPress any key to continue...");
+                                                    Console.ReadLine();
+                                                    break;
+                                                }
+                                                novo.CC = cc;
+                                                Console.Write("Address: ");
+                                                novo.Adress = Console.ReadLine();
+                                                Patients.AddToFile(novo);
+                                                //Verifies if the CC hasn't been to the screening before
                                             }
+                                            else novo = Patients.GetPatientByCC(cc); //if this patient has already a file search and get his information
+
+                                            if (Screening.AddToScreening(novo)) //checks if the patient isn't already in the queue for screening
+                                                Console.WriteLine("Patient has been added to the screening queue.");
                                             else
-                                                Console.WriteLine("There was an error trying to read the patient patient priority.");
-                                            Console.ReadKey();
-                                            break;
+                                                Console.WriteLine("Patient is already in the sceening queue");
+                                                
+                                        }
+                                        Console.WriteLine("Press any key to continue...");
+                                        Console.ReadKey();
+                                        break;
 
-                                        case 'b':
-                                        case 'B'://List queue
+                                    case 'b':
+                                    case 'B':
+                                        //Edit patient informations
+                                        Console.Write("CC: ");
+                                        cc = Console.ReadLine();
 
-                                            Screening.ListPatientsInScreening();
+                                        if (cc.Length < 12) Console.WriteLine("Invalid CC.\nPress any key to continue..."); //checks if CC have a valid format
+                                        else
+                                        {
+                                            //Collects the needed data to edit
+                                            Console.WriteLine("<A>Editar nome");
+                                            Console.WriteLine("<B>Editar morada");
+                                            Console.WriteLine("<C>Editar nome e morada");
+                                            bool ver3 = char.TryParse(Console.ReadLine(), out decisao); //if user selected a valid option from the menu
 
-                                            break;
+                                            if (ver3)
+                                            {
+                                                if (decisao == 'a' || decisao == 'A')
+                                                {
+                                                    Console.Write("Novo nome: ");
+                                                    string newName = Console.ReadLine();
 
-                                        case 'c':
-                                        case 'C'://Quit
+                                                    if(!CheckIfTTwoNames(newName)){
+                                                        Console.WriteLine("Invalid name.\nPress any key to continue...");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
 
-                                            break;
-                                    }
-                                    break;
+                                                    if (!Patients.EditFileName(cc, newName))
+                                                    {
+                                                        Console.WriteLine("CC not found.\nPress any key to continue...");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    Console.WriteLine("Name sucessfully changes.\nPress any key to continue...");
+                                                }
+                                                else if (decisao == 'b' || decisao == 'B')
+                                                {
+                                                    Console.Write("Nova morada: ");
+                                                    string newAddress = Console.ReadLine();
+                                                    
+                                                    if (!Patients.EditFileAddress(cc, newAddress))
+                                                    {
+                                                        Console.WriteLine("CC not found.\nPress any key to continue...");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    Console.WriteLine("Address changes sucessfully.\Press any key to continue...");
+                                                }
+                                                else if (decisao == 'c' || decisao == 'C')
+                                                {
+                                                    Console.Write("Novo nome: ");
+                                                    string newName = Console.ReadLine();
+                                                    if(!CheckIfTTwoNames(newName))
+                                                    {
+                                                        Console.WriteLine("Invalid name.\nPress any key to continue...");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    Console.Write("Nova morada: ");
+                                                    string newAddress = Console.ReadLine();
 
-                                case 'b':
-                                case 'B': //Urgency
+                                                    if(!Patients.EditFileNameAddress(cc, newName, newAddress))
+                                                    {
+                                                        Console.WriteLine("CC not found.\nPress any key to continue...");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    Console.WriteLine("Sucessful.\nPress any key to continue...");
+                                                }
+                                                else Console.WriteLine("Invalid option.\nPress any key to continue...");
+                                            }
+                                            else //if user selected an invalid option from the menu
+                                            {
+                                                Console.WriteLine("There was an error trying to choose the menu.\nPress any key to continue...");
+                                            }
+                                        }
 
-                                    MenuUrgency();
-                                    decisao = char.Parse(Console.ReadLine());
+                                        Console.ReadKey();
+
+                                        break;
+
+                                    case 'c':
+                                    case 'C':
+                                        Patients.ListPatientsFile(); //list all patients file
+                                        Console.WriteLine("Press any key to continue...");
+                                        Console.ReadKey();
+                                        break;
+
+                                    case 'd':
+                                    case 'D':
+                                        break;
+                                }
+                            }
+
+                            break;
+
+                        case 'b':
+                        case 'B':
+
+                            while (decisao != 'E' && decisao != 'e') //while "decisao" != 'e' or 'E', stays in the menu "Doctors"
+                            {
+                                Console.Clear();
+                                MenuDoctors();
+                                bool ver4 = char.TryParse(Console.ReadLine(), out decisao);
+
+                                if (ver4) //if user selected a valid option from the menu
+                                {
 
                                     switch (decisao)
                                     {
                                         case 'a':
-                                        case 'A'://Call patient
-                                            
-                                            Console.WriteLine("Doctor ID: ");
-                                            bool verify = int.TryParse(Console.ReadLine(), out int docID);
+                                        case 'A':
+                                            //create new doctor
+                                            novo2 = new Doctor();
 
-                                            if (verify)
+                                            //Collects the needed data and stores it to the object variable
+                                            Console.Write("Name (First and Last): ");
+                                            novo2.Name = Console.ReadLine();
+                                            if (!CheckIfTTwoNames(novo2.Name)) //checks if name has a valid format
                                             {
-                                                if (Doctors.VerifyID(docID))
-                                                {
-                                                    Patient q = UrgencyQueue.CallNextPatient();
-
-                                                    Console.WriteLine("Patient {0} has been called.", q.Name.ToString());
-                                                    UrgencyQueue.ListCurrentPatient();
-                                                    UrgencyQueue.RemovePatientUrgencyQueue();
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine("There was a problem trying to verify the Doctor's ID.");
-                                                }
+                                                Console.WriteLine("Invalide first and last name.\n Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
                                             }
-                                            else Console.WriteLine("There was a problem trying to read the Doctor's ID.");
+                                            Console.Write("CC: ");
+                                            novo2.CC = Console.ReadLine();
+                                            if (novo2.CC.Length < 12) //checks if CC has a valid format
+                                            {
+                                                Console.WriteLine("Invalid cc.\nPress any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            Console.Write("Birth Date (DD-MM-YYYY) or (DD/MM/YYYY): ");
+                                            novo2.BirthDate = Console.ReadLine();
+                                            if (!CheckIfValidBirthDate(novo2.BirthDate)) //checks if Birth Date has a valid format
+                                            {
+                                                Console.WriteLine("Invalid birth date.\nPress any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+
+                                            if (Doctors.AddToDoctors(novo2)) Console.WriteLine("Doctor has been added sucessfully.");  //checks if the doctor isn't already created
+                                            else
+                                                Console.WriteLine("There is a doctor with the same CC.");
 
                                             Console.ReadKey();
+
                                             break;
 
                                         case 'b':
-                                        case 'B'://List patients
+                                        case 'B':
+                                            //Edit doctor information
+                                            Console.WriteLine("ID: ");
+                                            bool ver5 = int.TryParse(Console.ReadLine(), out int id); //checks if the inserted id exists
 
-                                            UrgencyQueue.ListPatientsInUrgency();
+                                            if (!ver5)
+                                            {
+                                                Console.WriteLine("Invalid ID.\nPress any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            Console.WriteLine("New name(first and last): "); //checks if name has a valid format
+                                            string newName = Console.ReadLine();
+                                            if (!CheckIfTTwoNames(newName))
+                                            {
+                                                Console.WriteLine("Invalid name.\nPress any key to continue");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            if (Doctors.EditDoctorName(id, newName)) Console.WriteLine("Name sucessfully edited.");
+                                            else Console.WriteLine("There was an error trying to edit the name, verify if the ID is correct");
+
                                             Console.ReadKey();
                                             break;
 
                                         case 'c':
-                                        case 'C'://Exits
+                                        case 'C':
+
+                                            //delete doctor
+                                            Console.Write("ID: ");
+                                            bool ver = int.TryParse(Console.ReadLine(), out id);
+
+                                            if (!ver)
+                                            {
+                                                Console.WriteLine("Invalid ID.\nPress any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            if (Doctors.RemoveDoc(id)) Console.Write("Doctor sucessfully removed.");
+                                            else Console.Write("There was an error trying to remove the doctor, please verify the ID");
+
+                                            Console.ReadKey();
                                             break;
+
+
+                                        case 'd':
+                                        case 'D':
+                                            //list all doctors
+                                            Doctors.ListDoctors();
+                                            Console.ReadKey();
+                                            break;
+
                                     }
-
-                                    break;
-
-                                case 'c':
-                                case 'C':
-                                    break;
+                                }
+                                else //if user selected an invalid option from the menu
+                                {
+                                    Console.WriteLine("Invalid option.\nPress any key to continue...");
+                                }
                             }
-                        }
-                        break;
+
+
+
+                            break;
+                        case 'c':
+                        case 'C':
+                            decisao = ' ';
+                            while (decisao != 'c' && decisao != 'C') //while "decisao" != 'c' or 'C', stays in the menu "Emergency Room"
+                            {
+                                Console.Clear();
+                                MenuER();
+                                bool ver7 = char.TryParse(Console.ReadLine(), out decisao); //cheks if user inserted a valid option from the menu
+
+                                switch (decisao)
+                                {
+                                    case 'a':
+                                    case 'A': //Secreening
+
+
+                                        while (decisao != 'c' && decisao != 'C') //while "decisao" != 'c' or 'C', stays in the menu "Screening"
+                                        {
+                                            MenuScreening();
+                                            bool ver8 = char.TryParse(Console.ReadLine(), out decisao); //checks if user inserted a valid option from the menu
+
+                                            if (!ver8)
+                                            {
+                                                Console.WriteLine("Invalid option.\nPress any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            switch (decisao)
+                                            {
+                                                case 'a':
+                                                case 'A': //Call patient
+
+                                                    Patient p = Screening.CallNextPatient();
+                                                    Screening.ListCurrentPatient();
+                                                    Console.Write("Patient priority: ");
+                                                    bool ver = int.TryParse(Console.ReadLine(), out int patientPriority); //Checks Daif user inseted a valid priority 
+
+                                                    if (ver)
+                                                    {
+                                                        Screening.GivePriority(p, patientPriority);
+
+                                                        Screening.RemovePatientFromScreeningQueue();
+                                                        UrgencyQueue.AddToUrgency(p);
+
+                                                        Console.WriteLine("Patient added to the queue!");
+                                                    }
+                                                    else
+                                                        Console.WriteLine("There was an error trying to read the patient patient priority.");
+                                                    Console.ReadKey();
+                                                    break;
+
+                                                case 'b':
+                                                case 'B'://List queue
+
+                                                    Screening.ListPatientsInScreening();
+
+                                                    break;
+
+                                                case 'c':
+                                                case 'C'://Quit
+
+                                                    break;
+                                            }
+                                        }
+                                        break;
+
+                                    case 'b':
+                                    case 'B': //Urgency
+
+                                        while (decisao != 'c' && decisao != 'C') //while "decisao" != 'c' or 'C', stays in the menu "Urgency"
+                                        {
+                                            MenuUrgency();
+                                            bool ver9 = char.TryParse(Console.ReadLine(), out decisao); //Checks if user inserted a valid option format
+                                            if (!ver9)
+                                            {
+                                                Console.WriteLine("Invalid option.\nPress any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            switch (decisao)
+                                            {
+                                                case 'a':
+                                                case 'A'://Call patient
+
+                                                    Console.WriteLine("Doctor ID: ");
+                                                    bool verify = int.TryParse(Console.ReadLine(), out int docID);
+
+                                                    if (verify)
+                                                    {
+                                                        if (Doctors.VerifyID(docID)) //Checks if user inserted a valid priority
+                                                        {
+                                                            Patient q = UrgencyQueue.CallNextPatient();
+
+                                                            Console.WriteLine("Patient {0} has been called.", q.Name.ToString());
+                                                            UrgencyQueue.ListCurrentPatient();
+                                                            UrgencyQueue.RemovePatientUrgencyQueue();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine("There was a problem trying to verify the Doctor's ID.");
+                                                        }
+                                                    }
+                                                    else Console.WriteLine("There was a problem trying to read the Doctor's ID.");
+
+                                                    Console.ReadKey();
+                                                    break;
+
+                                                case 'b':
+                                                case 'B'://List patients
+
+                                                    UrgencyQueue.ListPatientsInUrgency();
+                                                    Console.ReadKey();
+                                                    break;
+
+                                                case 'c':
+                                                case 'C'://Exits
+                                                    break;
+                                            }
+                                        }
+
+                                        break;
+
+                                    case 'c':
+                                    case 'C':
+                                        break;
+                                }
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("There was an error trying to read the option.\nPress any key to continue...");
+                    Console.ReadKey();
                 }
             }
         }
@@ -402,6 +536,52 @@ namespace LP2_TP1
             Console.WriteLine("| C) Exit                                                 |");
             Console.WriteLine("-----------------------------------------------------------");
 
+        }
+        
+
+        
+        static bool CheckIfTTwoNames(string names)
+        {
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                if (names[i] == ' ')
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        
+        static bool CheckIfValidBirthDate(string birthDate)
+        {
+            int i;
+            if (birthDate.Length != 10)
+            {
+                return false;
+            }
+
+            bool ver = int.TryParse(birthDate[0].ToString(), out i);
+            if (!ver) return false;
+            ver = int.TryParse(birthDate[1].ToString(), out i);
+            if (!ver) return false;
+            if (birthDate[2] != '-' && birthDate[2] != '/') return false;
+            ver = int.TryParse(birthDate[3].ToString(), out i);
+            if (!ver) return false;
+            ver = int.TryParse(birthDate[4].ToString(), out i);
+            if (!ver) return false;
+            if (birthDate[5] != '-' && birthDate[5] != '/') return false;
+            ver = int.TryParse(birthDate[6].ToString(), out i);
+            if (!ver) return false;
+            ver = int.TryParse(birthDate[7].ToString(), out i);
+            if (!ver) return false;
+            ver = int.TryParse(birthDate[8].ToString(), out i);
+            if (!ver) return false;
+            ver = int.TryParse(birthDate[9].ToString(), out i);
+            if (!ver) return false;
+
+            return true;
         }
 
     }

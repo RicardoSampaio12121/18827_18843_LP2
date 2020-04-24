@@ -104,6 +104,8 @@ namespace LP2_TP1
             return false;
         }
 
+
+        
         public static Patient GetPatientByCC(string CC)
         {
             int position;
