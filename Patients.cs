@@ -47,6 +47,7 @@ namespace LP2_TP1
             return false;
         }
 
+        
         public static bool VerifyCC(string CC)
         {
             for (int i = 0; i < nPatients; i++)

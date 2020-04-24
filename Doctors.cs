@@ -75,7 +75,7 @@ namespace LP2_TP1
         }
 
         public static bool RemoveDoc(int id)
-        {       
+        {
             int i;
 
             for (i = 0; i < nDoctors; i++)
@@ -88,6 +88,15 @@ namespace LP2_TP1
                 }
             }
 
+            return false;
+        }
+
+        public static bool VerifyID(int id)
+        {
+            for (int i = 0; i < nDoctors; i++)
+            {
+                if(id == doctorsList[i].IdDoctor) return true;
+            }
             return false;
         }
 

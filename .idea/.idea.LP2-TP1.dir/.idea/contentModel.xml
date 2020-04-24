@@ -7,10 +7,13 @@
       <e p=".floo" t="Include" />
       <e p=".flooignore" t="Include" />
       <e p=".gitattributes" t="Include" />
+      <e p="Doctor.cs" t="Include" />
+      <e p="Doctors.cs" t="Include" />
       <e p="LP2-TP1.csproj" t="IncludeRecursive" />
       <e p="Patient.cs" t="Include" />
       <e p="Patients.cs" t="Include" />
       <e p="Program.cs" t="Include" />
+      <e p="Queues.cs" t="Include" />
       <e p="README.md" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive">
