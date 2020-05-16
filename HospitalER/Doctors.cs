@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace HospitalER
 {
@@ -101,20 +102,23 @@ namespace HospitalER
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static bool RemoveDoc(int id)
+        public static bool CheckOut(int id)
         {
-            int i;
-
-            for (i = 0; i < nDoctors; i++)
+            foreach (var d in doctorsList)
             {
-                if (doctorsList[i].IdDoctor == id && doctorsList[i].Operational)
+                if (d.IdDoctor == id)
                 {
-
-                    doctorsList[i].Operational = false;
-                    return true;
+                    try
+                    {
+                        doctorsList.Remove(d);
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
                 }
             }
-
             return false;
         }
         /// <summary>

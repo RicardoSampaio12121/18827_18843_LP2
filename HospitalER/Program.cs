@@ -8,7 +8,6 @@ namespace HospitalER
         static void Main()
         {
             Console.Clear();
-            Doctor novo2;
             char decisao;
             
             //Directories paths
@@ -265,9 +264,12 @@ namespace HospitalER
                                             {
                                                 //Reads the information associated with the ID from a file
                                                 d = Directories.ReadPersonFromFile<Doctor>(DOCTOR_INFO + id + ".bin");
-                                                d.IdDoctor = id;
 
-                                                if (d.CC.Length < 2)
+                                                try
+                                                {
+                                                    d.IdDoctor = id;
+                                                }
+                                                catch
                                                 {
                                                     Console.WriteLine("There is no doctor matching that ID.");
                                                     Console.WriteLine("Press any key to continue...");
@@ -287,8 +289,23 @@ namespace HospitalER
                                             break;
                                         case 'b':
                                         case 'B'://Checkout
-                                        
-                                            
+                                            //Gets doctor ID
+                                            Console.Write("Enter ID: ");
+                                            if (int.TryParse(Console.ReadLine(), out id)) //Checks if id format is valid
+                                            {
+                                                //Attempts to check out doctor
+                                                if (!Doctors.CheckOut(id))
+                                                    //If there is no doctor checked in with that ID, error message
+                                                    Console.WriteLine("There is no doctor with that ID working right now.");
+                                                else
+                                                    Console.WriteLine("Doctor sucessfully checked out");
+                                            }
+                                            else
+                                                //Error message if inserted a not integer value
+                                                Console.WriteLine("Wrong ID format.");
+
+                                            Console.WriteLine("Press any key to continue...");
+                                            Console.ReadKey();
                                             break;
                                         case 'c':
                                         case 'C':
@@ -365,8 +382,8 @@ namespace HospitalER
                                                 break;
                                             }
 
-                                            if (Doctors.RemoveDoc(id)) Console.Write("Doctor sucessfully removed.");
-                                            else Console.Write("There was an error trying to remove the doctor, please verify the ID");
+                                            //if (Doctors.RemoveDoc(id)) Console.Write("Doctor sucessfully removed.");
+                                            //else Console.Write("There was an error trying to remove the doctor, please verify the ID");
 
                                             Console.ReadKey();
                                             break;
