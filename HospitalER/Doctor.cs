@@ -105,7 +105,43 @@ namespace HospitalER
         }
 
         #endregion
-            
+        
+        
+        public static bool EditDoctorFile(string path, string name, string address)
+        {
+            var p = new Doctor();
+            try
+            { 
+                p = Directories.ReadPersonFromFile<Doctor>(path);
+            }
+            catch(IOException e)
+            {
+                Console.WriteLine(e.Message + "Could not read Doctor file");
+                return false;
+            }
+
+            if (p.CC.Length > 2)
+            {
+                try
+                {
+                    if(name != "")
+                        p.Name = name;
+                    if (address != "") ;
+                    p.Address = address;
+                        
+                    if (Patient.RewritePersonFile<Doctor>(path, p))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                catch(IOException e)
+                {
+                    Console.WriteLine(e.Message + "Could not write to file");
+                }
+            }
+            return false;
+        }
         
         #endregion
 

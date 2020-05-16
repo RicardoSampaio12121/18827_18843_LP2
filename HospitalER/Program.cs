@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 
 namespace HospitalER
@@ -119,7 +120,8 @@ namespace HospitalER
                                             else
                                             {
                                                 //Checks if the patient has a file
-                                                if (Patient.PatientFileExists(PATIENT_INFO + cc + ".bin"))
+                                                
+                                                if (File.Exists(PATIENT_INFO + cc + ".bin"))
                                                 {
                                                     //Prints the edit options to the screen 
                                                     Console.WriteLine("<A>Edit name");
@@ -257,20 +259,22 @@ namespace HospitalER
                                     switch (decisao)
                                     {
                                         case 'a':
-                                        case 'A': //Doctor check in
+                                        case 'A': //Doctor clock in
                                             //Gets doctor ID
                                             Console.Write("Enter ID: ");
                                             if (int.TryParse(Console.ReadLine(), out id))//Checks if id format is valid
                                             {
                                                 //Reads the information associated with the ID from a file
                                                 d = Directories.ReadPersonFromFile<Doctor>(DOCTOR_INFO + id + ".bin");
-
+                                                
+                                                //Checks if the information was read sucessfully
                                                 try
                                                 {
                                                     d.IdDoctor = id;
                                                 }
                                                 catch
                                                 {
+                                                    //If it wasn't, error message and break
                                                     Console.WriteLine("There is no doctor matching that ID.");
                                                     Console.WriteLine("Press any key to continue...");
                                                     Console.ReadKey();
@@ -288,14 +292,14 @@ namespace HospitalER
                                             Console.ReadKey();
                                             break;
                                         case 'b':
-                                        case 'B'://Checkout
+                                        case 'B'://Clock out
                                             //Gets doctor ID
                                             Console.Write("Enter ID: ");
                                             if (int.TryParse(Console.ReadLine(), out id)) //Checks if id format is valid
                                             {
-                                                //Attempts to check out doctor
+                                                //Attempts to clock out doctor
                                                 if (!Doctors.CheckOut(id))
-                                                    //If there is no doctor checked in with that ID, error message
+                                                    //If there is no doctor at work with that ID, error message
                                                     Console.WriteLine("There is no doctor with that ID working right now.");
                                                 else
                                                     Console.WriteLine("Doctor sucessfully checked out");
@@ -308,7 +312,7 @@ namespace HospitalER
                                             Console.ReadKey();
                                             break;
                                         case 'c':
-                                        case 'C':
+                                        case 'C'://Make doctor file/create doctor
                                             d = new Doctor();
 
                                             //Gets the name of the doctor
@@ -369,30 +373,93 @@ namespace HospitalER
                                             break;
 
                                         case 'd':
-                                        case 'D':
-
-                                            //delete doctor
-                                            Console.Write("ID: ");
-                                            bool ver = int.TryParse(Console.ReadLine(), out id);
-
-                                            if (!ver)
+                                        case 'D': //edit doctor information
+                                            d = new Doctor();
+                                            
+                                            //Get doctor ID
+                                            Console.WriteLine("ID: ");
+                                            if (!int.TryParse(Console.ReadLine(), out var a)) //Verifys if it's int
                                             {
-                                                Console.WriteLine("Invalid ID.\nPress any key to continue...");
+                                                //If the input is not an integer, error message
+                                                Console.WriteLine("ID must be an integer value.");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            
+                                            //Checks if there is a file associated with that ID
+                                            if(!File.Exists(DOCTOR_INFO + a + ".bin"))
+                                            {
+                                                //If file doesn't exist
+                                                Console.WriteLine("There is no file associated with ID {0}.", a.ToString());
+                                                Console.WriteLine("Press any key to continue...");
                                                 Console.ReadKey();
                                                 break;
                                             }
 
-                                            //if (Doctors.RemoveDoc(id)) Console.Write("Doctor sucessfully removed.");
-                                            //else Console.Write("There was an error trying to remove the doctor, please verify the ID");
+                                            id = a;
+                                            //Prints the edit options to the screen 
+                                            Console.WriteLine("<A>Edit name");
+                                            Console.WriteLine("<B>Edit address");
+                                            Console.WriteLine("<C>Edit name and address");
+                                            Console.Write("Decision: ");
 
+                                            if (!char.TryParse(Console.ReadLine(), out decisao))
+                                            {
+                                                //Decision must be a character
+                                                Console.WriteLine("Decision must be a character");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            string newName = "";
+                                            string newAddress = "";
+
+                                            //Get new name if decision is a or c
+                                            if (decisao == 'a' || decisao == 'A' || decisao == 'c' || decisao == 'C')
+                                            {
+                                                //Get new name
+                                                Console.WriteLine("Insert new name(First and last): ");
+                                                newName = Console.ReadLine();
+                                                    
+                                                //Check if user entered two names
+                                                if (!CheckIfTTwoNames(newName))
+                                                {
+                                                    //if not, error message
+                                                    Console.WriteLine("You must enter atleast your first and last name.");
+                                                    Console.WriteLine("Press any key to continue");
+                                                    Console.ReadKey();
+                                                    break;
+                                                }
+                                            }
+                                            
+                                            //Gets new address if decision is b or c
+                                            if (decisao == 'b' || decisao == 'B' || decisao == 'c' || decisao == 'C')
+                                            {
+                                                //Get new address
+                                                Console.WriteLine("Insert new address: ");
+                                                newAddress = Console.ReadLine();
+                                            }
+                                            
+                                            if (!Doctor.EditDoctorFile(DOCTOR_INFO + id + ".bin", newName, newAddress))
+                                            {
+                                                //if something goes wrong, error message
+                                                Console.WriteLine("Something went wrong, could not edit file");
+                                                Console.WriteLine("Press any key to continue");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            //if everything goes right
+                                            Console.WriteLine("Sucessfull!");
+                                            Console.WriteLine("Press any key to continue");
                                             Console.ReadKey();
                                             break;
 
-
                                         case 'e':
                                         case 'E':
-                                            //list all doctors
-                                            Doctors.ListDoctors();
+                                            //List doctors
+                                            Doctors.ListDoctors(DOCTOR_INFO);
                                             Console.WriteLine("Press any key to continue...");
                                             Console.ReadKey();
                                             break;
@@ -593,17 +660,19 @@ namespace HospitalER
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("|                     DOCTORS MENU                        |");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("| A) Check in                                             |");
+            Console.WriteLine("| A) Clock in                                             |");
             Console.WriteLine("|---------------------------------------------------------|");
-            Console.WriteLine("| B) Add doctor                                           |");
+            Console.WriteLine("| B) Clock out                                            |");
             Console.WriteLine("|---------------------------------------------------------|");
-            Console.WriteLine("| C) Edit                                                 |");
+            Console.WriteLine("| C) Add doctor                                           |");
             Console.WriteLine("|---------------------------------------------------------|");
-            Console.WriteLine("| D) Delete                                               |");
+            Console.WriteLine("| D) Edit                                                 |");
             Console.WriteLine("|---------------------------------------------------------|");
-            Console.WriteLine("| E) List all Doctors                                     |");
+            Console.WriteLine("| E) List all doctors                                     |");
+            Console.WriteLine("|---------------------------------------------------------|");
+            Console.WriteLine("| F) Delete                                               |");
             Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("| F) Exit                                                 |");
+            Console.WriteLine("| G) Exit                                                 |");
             Console.WriteLine("-----------------------------------------------------------");
         }
 

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ricardo/Documentos/HospitalER/HospitalER/HospitalER.csproj",
+      "projectUniqueName": "/home/ricardo/Documentos/18827_18843_LP2/HospitalER/HospitalER.csproj",
       "projectName": "HospitalER",
-      "projectPath": "/home/ricardo/Documentos/HospitalER/HospitalER/HospitalER.csproj",
+      "projectPath": "/home/ricardo/Documentos/18827_18843_LP2/HospitalER/HospitalER.csproj",
       "packagesPath": "/home/ricardo/.nuget/packages/",
-      "outputPath": "/home/ricardo/Documentos/HospitalER/HospitalER/obj/",
+      "outputPath": "/home/ricardo/Documentos/18827_18843_LP2/HospitalER/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ricardo/.nuget/NuGet/NuGet.Config"

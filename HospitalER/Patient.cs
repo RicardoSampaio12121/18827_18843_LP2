@@ -108,7 +108,7 @@ namespace HospitalER
             return p;
         }
 
-        public static bool PatientFileExists(string path)
+        /*public static bool PatientFileExists(string path)
         {
             try
             {
@@ -120,9 +120,9 @@ namespace HospitalER
             {
                 return false;
             }
-        }
+        }*/
 
-        public static bool RewritePatientFile(string path, Patient p)
+        public static bool RewritePersonFile<T>(string path, T p)
         {
             var bfw = new BinaryFormatter();
             FileStream fs;

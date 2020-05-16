@@ -20,7 +20,7 @@ namespace HospitalER
                 }
             }
         }
-        
+
         public static T ReadPersonFromFile<T>(string path)
         {
             var d = default(T);
@@ -33,7 +33,7 @@ namespace HospitalER
             catch (IOException e)
             {
                 Console.WriteLine(e.Message + "\nCan't open file.");
-                return d;    
+                return d;
             }
 
             try
@@ -42,18 +42,18 @@ namespace HospitalER
                 s.Close();
                 return d;
             }
-            catch(IOException e)
+            catch (IOException e)
             {
                 Console.WriteLine(e.Message + "\nCan't read file");
                 return d;
             }
         }
-        
+
         public static bool WriteNewPerson<T>(string path, string id, T p)
         {
             var bfw = new BinaryFormatter();
             FileStream fs;
-            if (!File.Exists(path));
+            if (!File.Exists(path)) ;
             {
                 try
                 {
@@ -64,20 +64,21 @@ namespace HospitalER
                     Console.WriteLine(e.Message + "\nCan't open file");
                     return false;
                 }
-                
-                try 
-                { 
-                    bfw.Serialize(fs, p); 
-                    fs.Close(); 
+
+                try
+                {
+                    bfw.Serialize(fs, p);
+                    fs.Close();
                     return true;
                 }
-                catch (IOException e) 
-                { 
-                    Console.WriteLine(e.Message + "\nCan't write to file"); 
+                catch (IOException e)
+                {
+                    Console.WriteLine(e.Message + "\nCan't write to file");
                     fs.Close();
                     return false;
                 }
             }
         }
+
     }
 }

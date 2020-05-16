@@ -103,7 +103,7 @@ namespace HospitalER
                     if (address != "") ;
                         p.Address = address;
                         
-                    if (Patient.RewritePatientFile(path, p))
+                    if (Patient.RewritePersonFile<Patient>(path, p))
                     {
                         return true;
                     }

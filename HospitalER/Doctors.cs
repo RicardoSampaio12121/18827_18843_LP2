@@ -138,25 +138,26 @@ namespace HospitalER
         /// <summary>
         /// Lists all the operational doctors
         /// </summary>
-        public static void ListDoctors()
+        public static void ListDoctors(string path)
         {
-            Console.WriteLine("---------------------------------------------------------------------------------");
-            Console.WriteLine("|                                LIST OF ALL DOCTORS                            |");
-            Console.WriteLine("---------------------------------------------------------------------------------");
-            Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |");
-            Console.WriteLine("---------------|-------------------------------------|--------------------------|");
+            int id = 0;
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("|                                                        LIST OF ALL DOCTORS                                                     |");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL      ");
 
-            for (int i = 0; i < nDoctors; i++)
+            foreach (var file in Directory.EnumerateFiles(path, "*"))
             {
-                if (doctorsList[i].Operational)
-                {
-                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|", doctorsList[i].IdDoctor, doctorsList[i].Name, doctorsList[i].CC);
-                    if (i + 1 < nDoctors)
-                        Console.WriteLine("---------------|-------------------------------------|--------------------------|");
-                    else
-                        Console.WriteLine("---------------------------------------------------------------------------------");
-                }
+                id++;
+                Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
+                
+                var p = Directories.ReadPersonFromFile<Doctor>(file);
+                
+                Console.WriteLine("|{0,10}|{1,22}|{2,25}|{3, 67}|{4, 200}", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+               
             }
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
         }
 
         #endregion
