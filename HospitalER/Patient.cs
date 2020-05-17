@@ -137,11 +137,12 @@ namespace HospitalER
             }
             catch (IOException e)
             {
-                Console.WriteLine(e.Message + "Could notrewrite file.");
+                Console.WriteLine(e.Message + "Could not rewrite file.");
+                return false;
             }
 
             return true;
-    }
+        }
         
         public static bool WriteNewPatientFile(string path, Patient p)
         {

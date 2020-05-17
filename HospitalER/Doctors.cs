@@ -138,13 +138,62 @@ namespace HospitalER
         /// <summary>
         /// Lists all the operational doctors
         /// </summary>
-        public static void ListDoctors(string path)
+        public static void ListCurrentOrFormerDoctors(string path, bool hired)
         {
             int id = 0;
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("|                                                        LIST OF ALL DOCTORS                                                     |");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL      ");
+            Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL     |");
+            
+            foreach (var file in Directory.EnumerateFiles(path, "*"))
+            {
+                id++;
+                Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
+                
+                var p = Directories.ReadPersonFromFile<Doctor>(file);
+                if(hired && p.Operational)
+                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+
+                else if(!hired && !p.Operational)
+                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+                
+            }
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+        }
+
+        public static void ListWorkingDoctors()
+        {
+            if (doctorsList.Count == 0)
+            {
+                Console.WriteLine("There are no doctors at work right now.");
+            }
+            else
+            {
+                Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+                    
+                Console.WriteLine("|                                                          DOCTORS AT WORK                                                       |");
+                    
+                Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+                    
+                Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL     |");
+                    
+                foreach (var p in doctorsList)
+                {
+                    Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
+                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", p.IdDoctor.ToString(), p.Name.ToString(), p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+                }
+                Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+            }
+        }
+
+        public static void ListAllDoctors(string path)
+        {
+            int id = 0;
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("|                                                        LIST OF ALL DOCTORS                                                     |");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL     |");
 
             foreach (var file in Directory.EnumerateFiles(path, "*"))
             {
@@ -152,12 +201,10 @@ namespace HospitalER
                 Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
                 
                 var p = Directories.ReadPersonFromFile<Doctor>(file);
+                Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
                 
-                Console.WriteLine("|{0,10}|{1,22}|{2,25}|{3, 67}|{4, 200}", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
-               
             }
-            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
-
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
         }
 
         #endregion

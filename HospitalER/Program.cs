@@ -412,6 +412,15 @@ namespace HospitalER
                                                 Console.ReadKey();
                                                 break;
                                             }
+                                            
+                                            //Verifica se introduziu uma opção inválida
+                                            if (decisao < 65 || decisao > 67 && decisao < 97 || decisao > 99)
+                                            {
+                                                Console.WriteLine("Decision must be a, b or c");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
 
                                             string newName = "";
                                             string newAddress = "";
@@ -457,13 +466,116 @@ namespace HospitalER
                                             break;
 
                                         case 'e':
-                                        case 'E':
-                                            //List doctors
-                                            Doctors.ListDoctors(DOCTOR_INFO);
+                                        case 'E'://List doctors
+                                            
+                                            //List options
+                                            Console.WriteLine("<A>Doctors working right now.");
+                                            Console.WriteLine("<B>Doctors working in this hospital.");
+                                            Console.WriteLine("<C>Former doctors");
+                                            Console.WriteLine("<D>All doctors.");
+                                            Console.Write("Decision: ");
+                                            
+                                            if (!char.TryParse(Console.ReadLine(), out decisao))
+                                            {
+                                                //Decision must be a character
+                                                Console.WriteLine("Decision must be a character");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            if (decisao < 65 || decisao > 68 && decisao < 97 || decisao > 100)
+                                            {
+                                                //Decision must be between a and e
+                                                Console.WriteLine("Decision must be a, b, c or d");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            
+                                            if(decisao == 'a' || decisao == 'A')
+                                                Doctors.ListWorkingDoctors();
+                                            else if(decisao == 'b' || decisao == 'B')
+                                                Doctors.ListCurrentOrFormerDoctors(DOCTOR_INFO, true);
+                                            else if(decisao == 'c' || decisao == 'C')
+                                                Doctors.ListCurrentOrFormerDoctors(DOCTOR_INFO, false);
+                                            else 
+                                                Doctors.ListAllDoctors(DOCTOR_INFO);
+                                            
                                             Console.WriteLine("Press any key to continue...");
                                             Console.ReadKey();
                                             break;
+                                        case 'f':
+                                        case 'F'://Change operational status
 
+                                            //Get doctor ID
+                                            Console.WriteLine("ID: ");
+                                            if (!int.TryParse(Console.ReadLine(), out int i)) //Verifys if it's int
+                                            {
+                                                //If the input is not an integer, error message
+                                                Console.WriteLine("ID must be an integer value.");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            
+                                            //Checks if there is a file associated with that ID
+                                            if(!File.Exists(DOCTOR_INFO + i + ".bin"))
+                                            {
+                                                //If file doesn't exist
+                                                Console.WriteLine("There is no file associated with ID {0}.", i.ToString());
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            id = i;
+
+                                            Console.WriteLine("<A>Change status to true");
+                                            Console.WriteLine("<B>Change status to false");
+                                            
+                                            if (!char.TryParse(Console.ReadLine(), out decisao)) //Verifys if it's char
+                                            {
+                                                //If the input is not an character, error message
+                                                Console.WriteLine("Decision must be a character value.");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+
+                                            if (decisao != 'a' && decisao != 'A' && decisao != 'b' && decisao != 'B')
+                                            {
+                                                //Decision must be either a or b
+                                                Console.WriteLine("Decision must be either a or b");
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            
+                                            //Gets the new operational status
+                                            bool newOperationalStatus;
+                                            if (decisao == 'a' || decisao == 'A')
+                                                newOperationalStatus = true;
+                                            else 
+                                                newOperationalStatus = false;
+                                            
+                                            //Sets the new operational status
+                                            if (!Doctor.ChangeOperationalStatus(DOCTOR_INFO + id.ToString() + ".bin", newOperationalStatus))
+                                            {
+                                                //If something goes wrong, error message
+                                                Console.WriteLine("Press any key to continue...");
+                                                Console.ReadKey();
+                                                break;
+                                            }
+                                            
+                                            Console.WriteLine("Operational status of doctor's id number {0} changes sucessfully to {1}", id.ToString(), newOperationalStatus.ToString());
+                                            Console.WriteLine("Press any key to continue...");
+                                            Console.ReadKey();
+                                            break;
+                                            
+                                        default:
+                                            Console.WriteLine("Invalid option.\nPress any key to continue...");
+                                            Console.ReadKey(); 
+                                            break;
                                     }
                                 }
                                 else //if user selected an invalid option from the menu
@@ -670,7 +782,7 @@ namespace HospitalER
             Console.WriteLine("|---------------------------------------------------------|");
             Console.WriteLine("| E) List all doctors                                     |");
             Console.WriteLine("|---------------------------------------------------------|");
-            Console.WriteLine("| F) Delete                                               |");
+            Console.WriteLine("| F) Change operational value                             |");
             Console.WriteLine("-----------------------------------------------------------");
             Console.WriteLine("| G) Exit                                                 |");
             Console.WriteLine("-----------------------------------------------------------");

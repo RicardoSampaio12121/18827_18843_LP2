@@ -142,6 +142,35 @@ namespace HospitalER
             }
             return false;
         }
+
+        public static bool ChangeOperationalStatus(string path, bool newStatus)
+        {
+            var p = new Doctor();
+           
+            try
+            {
+                p = Directories.ReadPersonFromFile<Doctor>(path);
+            }
+            catch(IOException e)
+            {
+                Console.WriteLine(e.Message + "\nCould not read file.");
+                return false;
+            }
+           
+            if (p.Operational == newStatus)
+            {
+                Console.WriteLine("This doctor operational status is already set to {0}.", newStatus.ToString());
+                return false;
+            }
+            
+            p.Operational = newStatus;
+
+            if (!Patient.RewritePersonFile<Doctor>(path, p))
+            {
+                return false;
+            }
+            return true;
+        }
         
         #endregion
 
