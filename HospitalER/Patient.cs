@@ -108,19 +108,7 @@ namespace HospitalER
             return p;
         }
 
-        /*public static bool PatientFileExists(string path)
-        {
-            try
-            {
-                var fs = new FileStream(path, FileMode.Open);
-                fs.Close();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }*/
+        
 
         public static bool RewritePersonFile<T>(string path, T p)
         {
@@ -149,7 +137,7 @@ namespace HospitalER
             //var bw = new BinaryWriter(new FileStream("Patients/" + p.cc + ".bin", FileMode.Create));;
             var bfw = new BinaryFormatter();
             FileStream fs;
-            if (!File.Exists(path + p.cc + ".bin"));
+            if (!File.Exists(path + p.cc + ".bin"))
             {
                 try
                 {
@@ -174,6 +162,7 @@ namespace HospitalER
                     return false;
                 }
             }
+            return false;
         }
 
         #endregion

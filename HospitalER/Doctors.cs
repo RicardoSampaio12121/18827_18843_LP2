@@ -13,11 +13,11 @@ namespace HospitalER
         static List<Doctor> doctorsList = new List<Doctor>();
         //static Doctor[] doctorsList; //fila de espera da Urgencia normal
         public static int nDoctors; //numero de pacientes na Urgencia
-        
+
         #endregion
 
         #region Methods
-        
+
         #region CONSTRUCTORS
 
         /// <summary>
@@ -38,6 +38,13 @@ namespace HospitalER
         {
             for (var i = 0; i < doctorsList.Count; i++)
                 if (doctorsList[i].IdDoctor == d.IdDoctor) return true;
+            return false;
+        }
+
+        public static bool VerifyIfAtWorkByID(int id)
+        {
+            for (var i = 0; i < doctorsList.Count; i++)
+                if (doctorsList[i].IdDoctor == id) return true;
             return false;
         }
 
@@ -71,8 +78,19 @@ namespace HospitalER
             if (!VerifyIfRepeated(d))
             {
                 doctorsList.Add(d);
+
                 nDoctors++;
                 return true;
+            }
+            return false;
+        }
+
+        public static bool DoctorExistsByCC(string path, string cc)
+        {
+            foreach (var file in Directory.EnumerateFiles(path, "*"))
+            {
+                var p = Directories.ReadPersonFromFile<Doctor>(file);
+                if (p.CC == cc) return true;
             }
             return false;
         }
@@ -102,7 +120,7 @@ namespace HospitalER
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static bool CheckOut(int id)
+        public static bool ClockOut(int id)
         {
             foreach (var d in doctorsList)
             {
@@ -130,11 +148,11 @@ namespace HospitalER
         {
             for (int i = 0; i < nDoctors; i++)
             {
-                if(id == doctorsList[i].IdDoctor && doctorsList[i].Operational) return true;
+                if (id == doctorsList[i].IdDoctor && doctorsList[i].Operational) return true;
             }
             return false;
         }
-        
+
         /// <summary>
         /// Lists all the operational doctors
         /// </summary>
@@ -145,19 +163,19 @@ namespace HospitalER
             Console.WriteLine("|                                                        LIST OF ALL DOCTORS                                                     |");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL     |");
-            
+
             foreach (var file in Directory.EnumerateFiles(path, "*"))
             {
                 id++;
                 Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
-                
-                var p = Directories.ReadPersonFromFile<Doctor>(file);
-                if(hired && p.Operational)
-                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
 
-                else if(!hired && !p.Operational)
-                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
-                
+                var p = Directories.ReadPersonFromFile<Doctor>(file);
+                if (hired && p.Operational)
+                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(), p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+
+                else if (!hired && !p.Operational)
+                    Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(), p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+
             }
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
         }
@@ -171,13 +189,13 @@ namespace HospitalER
             else
             {
                 Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
-                    
+
                 Console.WriteLine("|                                                          DOCTORS AT WORK                                                       |");
-                    
+
                 Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
-                    
+
                 Console.WriteLine("|      ID      |                 NAME                |          CC NUMBER       |        ADDRESS         |       OPERATIONAL     |");
-                    
+
                 foreach (var p in doctorsList)
                 {
                     Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
@@ -199,10 +217,10 @@ namespace HospitalER
             {
                 id++;
                 Console.WriteLine("---------------|-------------------------------------|--------------------------|------------------------|------------------------");
-                
+
                 var p = Directories.ReadPersonFromFile<Doctor>(file);
-                Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(),p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
-                
+                Console.WriteLine("|{0,14}|{1,37}|{2,26}|{3,24}|{4, 23}|", id.ToString(), p.Name.ToString(), p.CC.ToString(), p.Address.ToString(), p.Operational.ToString());
+
             }
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------");
         }

@@ -38,7 +38,7 @@ namespace HospitalER
 
             try
             {
-                d = (T) b.Deserialize(s);
+                d = (T)b.Deserialize(s);
                 s.Close();
                 return d;
             }
@@ -49,11 +49,11 @@ namespace HospitalER
             }
         }
 
-        public static bool WriteNewPerson<T>(string path, string id, T p)
+        public static bool WriteNewPerson<T>(string path, T p)
         {
             var bfw = new BinaryFormatter();
             FileStream fs;
-            if (!File.Exists(path)) ;
+            if (!File.Exists(path))
             {
                 try
                 {
@@ -78,6 +78,10 @@ namespace HospitalER
                     return false;
                 }
             }
+            else
+                return false;
+            
+            
         }
 
     }

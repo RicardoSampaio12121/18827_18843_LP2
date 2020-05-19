@@ -72,6 +72,7 @@ namespace HospitalER
             set => operational = value;
         }
 
+
         #endregion
 
         #region METHODS
@@ -126,7 +127,7 @@ namespace HospitalER
                 {
                     if(name != "")
                         p.Name = name;
-                    if (address != "") ;
+                    if (address != "") 
                     p.Address = address;
                         
                     if (Patient.RewritePersonFile<Doctor>(path, p))
