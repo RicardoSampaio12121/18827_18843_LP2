@@ -1,0 +1,13 @@
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\DataLayer.deps.json
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\DataLayer.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\DataLayer.pdb
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\Exceptions.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\HospitalBO.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\Exceptions.pdb
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\bin\Debug\netstandard2.0\HospitalBO.pdb
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.csprojAssemblyReference.cache
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.AssemblyInfoInputs.cache
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.AssemblyInfo.cs
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.csproj.CopyComplete
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.pdb

@@ -1,0 +1,8 @@
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\bin\Debug\netstandard2.0\Exceptions.deps.json
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\bin\Debug\netstandard2.0\Exceptions.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\bin\Debug\netstandard2.0\Exceptions.pdb
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\obj\Debug\netstandard2.0\Exceptions.csprojAssemblyReference.cache
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\obj\Debug\netstandard2.0\Exceptions.AssemblyInfoInputs.cache
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\obj\Debug\netstandard2.0\Exceptions.AssemblyInfo.cs
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\obj\Debug\netstandard2.0\Exceptions.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\Exceptions\obj\Debug\netstandard2.0\Exceptions.pdb

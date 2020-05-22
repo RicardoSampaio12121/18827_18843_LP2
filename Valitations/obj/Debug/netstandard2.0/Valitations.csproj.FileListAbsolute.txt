@@ -1,0 +1,8 @@
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\bin\Debug\netstandard2.0\Valitations.deps.json
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\bin\Debug\netstandard2.0\Valitations.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\bin\Debug\netstandard2.0\Valitations.pdb
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.csprojAssemblyReference.cache
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.AssemblyInfoInputs.cache
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.AssemblyInfo.cs
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.dll
+C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.pdb

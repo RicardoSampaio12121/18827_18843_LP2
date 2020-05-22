@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
+    <ProjectReference Include="..\HospitalBO\HospitalBO.csproj" />
+    <ProjectReference Include="..\HospitalRN\HospitalRN.csproj" />
+    <ProjectReference Include="..\Valitations\Valitations.csproj" />
+  </ItemGroup>
+
+</Project>
