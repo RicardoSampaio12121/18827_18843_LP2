@@ -13,9 +13,9 @@ namespace HospitalRN
     public class Regras
     {
         //Directories paths
-        const string PATIENT_INFO = @"C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\PatientsInfo\";
-        const string PATIENT_RECORD = @"C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\PatientsRecord\";
-        const string DOCTOR_INFO = @"C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\DoctorsInfo\";
+        const string PATIENT_INFO = @"C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\PatientsInfo\";
+        const string PATIENT_RECORD = @"C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\PatientsRecord\";
+        const string DOCTOR_INFO = @"C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\DoctorsInfo\";
 
         public static void CreateCustomDirectory(string path)
         {
@@ -458,5 +458,17 @@ namespace HospitalRN
         {
             return Urgency.NotEmpty();
         }
+
+        /// <summary>
+        /// Calls a function to append the date when a patient enters or leaves the hospital
+        /// </summary>
+        /// <param name="cc"></param>
+        /// <param name="time"></param>
+        /// <param name="state"></param>
+        public static void SaveRecord(string cc, DateTime time, bool state)
+        {   
+                IOManagement.AppendPatientRecord(PATIENT_RECORD + cc + ".txt", time, state);
+        }
+        
     }
 }

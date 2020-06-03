@@ -6,3 +6,12 @@ C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Val
 C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.AssemblyInfo.cs
 C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.dll
 C:\Users\Sampa\Documents\LP2\HospitalER\Valitations\obj\Debug\netstandard2.0\Valitations.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\bin\Debug\netstandard2.0\Valitations.deps.json
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\bin\Debug\netstandard2.0\Valitations.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\bin\Debug\netstandard2.0\Valitations.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\obj\Debug\netstandard2.0\Valitations.csprojAssemblyReference.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\obj\Debug\netstandard2.0\Valitations.AssemblyInfoInputs.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\obj\Debug\netstandard2.0\Valitations.AssemblyInfo.cs
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\obj\Debug\netstandard2.0\Valitations.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\obj\Debug\netstandard2.0\Valitations.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\Valitations\obj\Debug\netstandard2.0\Valitations.pdb

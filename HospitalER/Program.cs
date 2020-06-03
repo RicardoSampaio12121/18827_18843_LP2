@@ -19,9 +19,9 @@ namespace HospitalER
 
 
             //Directories paths
-            const string PATIENT_INFO = @"C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\PatientsInfo\";
-            const string PATIENT_RECORD = @"C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\PatientsRecord\";
-            const string DOCTOR_INFO = @"C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\DoctorsInfo\";
+            const string PATIENT_INFO = @"C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\PatientsInfo\";
+            const string PATIENT_RECORD = @"C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\PatientsRecord\";
+            const string DOCTOR_INFO = @"C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\DoctorsInfo\";
             
 
             //Create essential directories if they don't already exist
@@ -84,7 +84,7 @@ namespace HospitalER
                                     }
 
                                     var newPatient = new Patient();
-
+                                    //C:\Users\ricar\source\repos\18827_18843_LP2\DataLayer\PatientsInfo
                                     //Checks if the patient has a file
                                     if (!Regras.VisitFile(PATIENT_INFO, cc))
                                     {
@@ -129,6 +129,7 @@ namespace HospitalER
                                                 Console.ReadKey();
                                                 break;
                                             }
+                                            
                                         }
                                         catch (OpenFileException eo)
                                         {
@@ -167,7 +168,7 @@ namespace HospitalER
                                             break;
                                         }
                                     }
-
+                                    Regras.SaveRecord(newPatient.CC, DateTime.Now, true);
                                     //Adds the patient to the screening queue
                                     if (!Regras.SendPatientToScreeningQueue(newPatient))
                                     {
@@ -844,6 +845,7 @@ namespace HospitalER
 
                                                 //Get the queue
                                                 Queue<Patient> aux = Regras.GetScreeningQueueCopy();
+                                                
 
                                                 //Print the queue
                                                 DataGrids.ListScreeningQueue(aux);
@@ -912,8 +914,9 @@ namespace HospitalER
                                                 
                                                 //Get next patient
                                                 Patient q = Regras.GetNextPatientUrgencyQueue();
-                                                
-                                                Console.WriteLine("Persons {0} has been called.", q.Name.ToString());
+                                                Regras.SaveRecord(q.CC, DateTime.Now, false);
+
+                                                Console.WriteLine("Person {0} has been called.", q.Name.ToString());
                                                 Utils.ListPatientWithPriority(q);
                                                 Console.WriteLine("Press any key to continue...");
                                                 Console.ReadKey();

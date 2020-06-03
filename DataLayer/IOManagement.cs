@@ -286,5 +286,22 @@ namespace DataLayer
             }
             return aux;
         }
+
+        /// <summary>
+        /// Write if a patient enters or leaves the hospital in a text file
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="time"></param>
+        /// <param name="state"></param>
+        public static void AppendPatientRecord(string path, DateTime time, bool state)
+        {
+            if (state)
+                File.AppendAllText(path ,"IN: ");
+            else
+                File.AppendAllText(path ,"OUT: ");
+
+            File.AppendAllText(path, time.ToString() + "\n");
+        }
+        
     }
 }

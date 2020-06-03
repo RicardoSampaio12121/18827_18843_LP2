@@ -11,3 +11,17 @@ C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataL
 C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.csproj.CopyComplete
 C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.dll
 C:\Users\Sampa\Documents\LP2\HospitalER\DataLayer\obj\Debug\netstandard2.0\DataLayer.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\DataLayer.deps.json
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\DataLayer.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\DataLayer.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\Exceptions.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\HospitalBO.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\Exceptions.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\bin\Debug\netstandard2.0\HospitalBO.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.csprojAssemblyReference.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.AssemblyInfoInputs.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.AssemblyInfo.cs
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.csproj.CopyComplete
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\DataLayer\obj\Debug\netstandard2.0\DataLayer.pdb

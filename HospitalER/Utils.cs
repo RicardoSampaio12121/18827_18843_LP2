@@ -19,7 +19,7 @@ namespace HospitalER
         public static void ListPatient(Patient p)
         {
             Console.WriteLine("Patient: {0}", p.Name.ToString());
-            Console.WriteLine("Birth date: {0}", p.BirthDate.ToString());
+            Console.WriteLine("Birth date: {0}", p.BirthDate.ToShortDateString());
             Console.WriteLine("Identification: {0}", p.CC.ToString());
             Console.WriteLine("Address: {0}", p.Address.ToString());
         }

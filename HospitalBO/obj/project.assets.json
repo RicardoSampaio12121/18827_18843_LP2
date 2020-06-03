@@ -180,19 +180,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sampa\\.nuget\\packages\\": {}
+    "C:\\Users\\ricar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\HospitalBO\\HospitalBO.csproj",
+      "projectUniqueName": "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\HospitalBO\\HospitalBO.csproj",
       "projectName": "HospitalBO",
-      "projectPath": "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\HospitalBO\\HospitalBO.csproj",
-      "packagesPath": "C:\\Users\\Sampa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\HospitalBO\\obj\\",
+      "projectPath": "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\HospitalBO\\HospitalBO.csproj",
+      "packagesPath": "C:\\Users\\ricar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\HospitalBO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sampa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ricar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -233,7 +233,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

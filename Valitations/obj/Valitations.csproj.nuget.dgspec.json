@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\Valitations\\Valitations.csproj": {}
+    "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\Valitations\\Valitations.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\Valitations\\Valitations.csproj": {
+    "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\Valitations\\Valitations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\Valitations\\Valitations.csproj",
+        "projectUniqueName": "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\Valitations\\Valitations.csproj",
         "projectName": "Valitations",
-        "projectPath": "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\Valitations\\Valitations.csproj",
-        "packagesPath": "C:\\Users\\Sampa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sampa\\Documents\\LP2\\HospitalER\\Valitations\\obj\\",
+        "projectPath": "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\Valitations\\Valitations.csproj",
+        "packagesPath": "C:\\Users\\ricar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ricar\\Source\\Repos\\18827_18843_LP2\\Valitations\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sampa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ricar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

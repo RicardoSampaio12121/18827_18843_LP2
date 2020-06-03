@@ -6,3 +6,12 @@ C:\Users\Sampa\Documents\LP2\HospitalER\HospitalBO\obj\Debug\netstandard2.0\Hosp
 C:\Users\Sampa\Documents\LP2\HospitalER\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.AssemblyInfo.cs
 C:\Users\Sampa\Documents\LP2\HospitalER\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.dll
 C:\Users\Sampa\Documents\LP2\HospitalER\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\bin\Debug\netstandard2.0\HospitalBO.deps.json
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\bin\Debug\netstandard2.0\HospitalBO.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\bin\Debug\netstandard2.0\HospitalBO.pdb
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.csprojAssemblyReference.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.AssemblyInfoInputs.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.AssemblyInfo.cs
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.csproj.CoreCompileInputs.cache
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.dll
+C:\Users\ricar\Source\Repos\18827_18843_LP2\HospitalBO\obj\Debug\netstandard2.0\HospitalBO.pdb
