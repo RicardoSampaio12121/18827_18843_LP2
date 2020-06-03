@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains functions to check if the input data is valid
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 
 namespace Verifications
 {

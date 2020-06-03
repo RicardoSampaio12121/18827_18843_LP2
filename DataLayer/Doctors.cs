@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains all the function to control a list which hash every
+ * doctor that is working at the time
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using HospitalBO;

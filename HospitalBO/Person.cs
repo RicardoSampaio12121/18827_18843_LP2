@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains an abstract class of a person, it's used both by
+ * the class Patient and the class Doctor
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

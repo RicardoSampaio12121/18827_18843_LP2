@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains all the functions to make contact between the user 
+ * interface amd tje data layer
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using Exceptions;
 using System.Collections.Generic;
 using DataLayer;

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains the Doctor class which controls single doctors
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.Globalization;
 
 namespace HospitalBO

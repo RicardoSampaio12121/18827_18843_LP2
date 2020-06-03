@@ -1,4 +1,13 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: The goal of this program is to simulate a hospital ER.
+ * In the program it's possible to simulate patients, doctors and
+ * queues for both the screening and after the screening to the 
+ * doctor's room.
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.IO;
 using System.Collections.Generic;
 using Exceptions;

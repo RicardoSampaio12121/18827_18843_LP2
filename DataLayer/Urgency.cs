@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains the Urgency class, which controls the queue after 
+ * the screening
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using HospitalBO;

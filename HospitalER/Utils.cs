@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains some random function I didn't know where to put them
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using HospitalBO;

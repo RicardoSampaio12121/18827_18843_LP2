@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains some methods to organize information in grids
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using HospitalBO;

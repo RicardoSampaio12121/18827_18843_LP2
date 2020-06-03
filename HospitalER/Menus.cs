@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains the methods to print the menus to the console
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 
 namespace HospitalER
 {

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* ---------------------------------------------------------------------
+ * Resume: Contains all the methods to read and write to files, be it 
+ * text or binary.
+ * Author: Ricardo Sampaio
+ * Author: Cláudio Silva
+ *---------------------------------------------------------------------*/
+
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Exceptions;
